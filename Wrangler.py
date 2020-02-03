@@ -27,3 +27,18 @@ def makeDirFile(file):
         print('Created new directory:',outdir)
 
     return os.path.join(outdir, outname)
+
+def makeOutFile(file):
+    if not file.endswith('.png'):
+        outname = file + '.png'
+    else:
+        outname = file
+
+    parent = os.path.dirname(os.path.dirname(os.path.abspath('__file__')))
+    outdir = parent + '/Outputs'
+
+    if not os.path.exists(outdir):
+        os.mkdir(outdir)
+        print('Created new directory:',outdir)
+
+    return os.path.join(outdir,outname)
